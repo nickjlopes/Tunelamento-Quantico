@@ -9,7 +9,7 @@ from scipy import linalg as la
 import matplotlib.pyplot as plt
 from tqdm import tqdm
 
-def d(x,y):					#Funcao delta
+def d(x,y):					            #Funcao delta
     if x == y:
         ans = 1
     else:
@@ -17,18 +17,18 @@ def d(x,y):					#Funcao delta
     return ans
 
 
-U = input("Enter U:")
+U = input("Enter U:")                   #Parâmetro de acoplamento
 U = float(U)
 
-n = input("Enter N:")
+n = input("Enter N:")                   #Número de particulas no sistema
 n = int(n)
 
 
-dim = int((n+3.)*(n+2.)*(n+1.)/6.)
+dim = int((n+3.)*(n+2.)*(n+1.)/6.)      #Dimensão do espaço de Hilbert
 
 s = 0
 
-for i1 in range(0,n+1):
+for i1 in range(0,n+1):                 #Printa os possíveis estados iniciais para o sistema
     for j1 in range(0,n+1-i1):
         for k1 in range (0, n+1-i1-j1):
             l1 = n - i1 - j1 - k1
@@ -36,9 +36,9 @@ for i1 in range(0,n+1):
             s+=1
 
 i0 = input("Initial state: ")
-i0 = int(i0)
+i0 = int(i0)                            #Seleção do estado inicial do sistema
 
-P = input("Enter P:")
+P = input("Enter P:")                   #Número de patículas nos poços 2 e 4
 P = int(P)
 
 psi0 = np.zeros((dim),dtype=complex)
@@ -61,7 +61,7 @@ s=0
 ss=0
 
 
-for i1 in range(0,n+1):
+for i1 in range(0,n+1):                 #Dinâmica do Hamiltoniano do sistema
     for j1 in range(0,n+1-i1):
         for k1 in range(0,n+1-i1-j1):
             l1 = n - i1 - j1 - k1
